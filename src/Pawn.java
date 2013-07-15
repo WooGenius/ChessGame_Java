@@ -1,10 +1,10 @@
-
 public class Pawn {
-
 	String color;
+	String w = "white";
+	String b = "black";
 	
 	public Pawn(){
-		color = "white";
+		color = w;
 	}
 	
 	public Pawn(String color) {
