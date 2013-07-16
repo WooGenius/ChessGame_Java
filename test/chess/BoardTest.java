@@ -1,9 +1,13 @@
 package chess;
-import pieces.Pawn;
+import pieces.Pawn; 
 import junit.framework.TestCase;
 
-public class BoatdTest extends TestCase {
-	private Board board = new Board();
+public class BoardTest extends TestCase {
+	private Board board;
+	
+	protected void setUp() throws Exception {
+		board = new Board();
+	}
 	
 	public void testCreate() throws Exception {	
 		assertEquals(0, board.getNumberOfPieces());
@@ -11,7 +15,7 @@ public class BoatdTest extends TestCase {
 	
 	public void testPlus() throws Exception {
 		Pawn pawn1 = new Pawn();
-		Pawn pawn2 = new Pawn("black");
+		Pawn pawn2 = new Pawn(Pawn.black);
 		
 		board.plusPiece(pawn1);
 		assertEquals(1, board.getNumberOfPieces());

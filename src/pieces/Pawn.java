@@ -1,11 +1,11 @@
 package pieces;
 public class Pawn {
 	String color;
-	String w = "white";
-	String b = "black";
+	final public static String white = "white";
+	final public static String black = "black";
 	
 	public Pawn(){
-		color = w;
+		color = white;
 	}
 	
 	public Pawn(String color) {
@@ -15,5 +15,4 @@ public class Pawn {
 	String getColor() {
 		return color;
 	}
-
 }
