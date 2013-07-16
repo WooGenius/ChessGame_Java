@@ -15,7 +15,7 @@ public class BoardTest extends TestCase {
 	
 	public void testPlus() throws Exception {
 		Pawn pawn1 = new Pawn();
-		Pawn pawn2 = new Pawn(Pawn.black);
+		Pawn pawn2 = new Pawn(Pawn.BLACK);
 		
 		board.plusPiece(pawn1);
 		assertEquals(1, board.getNumberOfPieces());

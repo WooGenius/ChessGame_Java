@@ -1,11 +1,11 @@
 package pieces;
 public class Pawn {
 	String color;
-	final public static String white = "white";
-	final public static String black = "black";
+	final public static String WHITE = "white";
+	final public static String BLACK = "black";
 	
 	public Pawn(){
-		color = white;
+		color = WHITE;
 	}
 	
 	public Pawn(String color) {
