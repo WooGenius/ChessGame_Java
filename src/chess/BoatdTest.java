@@ -1,3 +1,5 @@
+package chess;
+import pieces.Pawn;
 import junit.framework.TestCase;
 
 public class BoatdTest extends TestCase {
@@ -17,6 +19,7 @@ public class BoatdTest extends TestCase {
 		
 		board.plusPiece(pawn2);
 		assertEquals(2, board.getNumberOfPieces());
+		assertEquals(pawn1, board.get(0));
 		assertEquals(pawn2, board.get(1));
 	}
 }

@@ -1,4 +1,7 @@
+package chess;
 import java.util.*;
+
+import pieces.Pawn;
 
 public class Board {
 	private ArrayList<Pawn> piecesList = new ArrayList<Pawn>();

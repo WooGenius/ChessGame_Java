@@ -1,3 +1,4 @@
+package pieces;
 import junit.framework.TestCase;
 
 

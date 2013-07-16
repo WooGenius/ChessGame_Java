@@ -1,3 +1,4 @@
+package pieces;
 public class Pawn {
 	String color;
 	String w = "white";
