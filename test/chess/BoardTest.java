@@ -14,10 +14,11 @@ public class BoardTest extends TestCase {
 		assertEquals(16, board.getNumberOfPieces());
 		assertEquals("pppppppp", board.getArray(1));
 		assertEquals("PPPPPPPP", board.getArray(6));
+		board.printBoard();
 	}
 	
 	public void testPlus() throws Exception {
-		Pawn pawn1 = new Pawn();
+		Pawn pawn1 = new Pawn(Pawn.WHITE, Pawn.WHITE_PAWN_EXP);
 		Pawn pawn2 = new Pawn(Pawn.BLACK, Pawn.BLACK_PAWN_EXP);
 		
 		board.plusPiece(pawn1, 1);

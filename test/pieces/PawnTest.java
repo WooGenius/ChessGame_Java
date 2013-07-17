@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 public class PawnTest extends TestCase {
 	public void testCreate() throws Exception {
-		Pawn whitePawn = new Pawn();
+		Pawn whitePawn = new Pawn(Pawn.WHITE, Pawn.WHITE_PAWN_EXP);
 		assertEquals(Pawn.WHITE, whitePawn.getColor());
 		Pawn blackPawn = new Pawn(Pawn.BLACK, Pawn.BLACK_PAWN_EXP);
 		assertEquals(Pawn.BLACK, blackPawn.getColor());
