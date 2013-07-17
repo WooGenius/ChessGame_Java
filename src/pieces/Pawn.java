@@ -1,25 +1,24 @@
 package pieces;
 public class Pawn {
 	String color;
-	char pawn;
+	public char myExp;
 	final public static String WHITE = "white";
 	final public static String BLACK = "black";
+	final public static char WHITE_PAWN_EXP = 'p';
+	final public static char BLACK_PAWN_EXP = 'P';
+	
 	
 	public Pawn(){
 		color = WHITE;
-		pawn = 'p';
+		myExp = WHITE_PAWN_EXP;
 	}
 	
-	public Pawn(String color) {
+	public Pawn(String color, char myExp) {
 		this.color = color;
-		pawn = 'P';
+		this.myExp = myExp;
 	}
 
 	String getColor() {
 		return color;
-	}
-
-	char get() {
-		return pawn;
 	}
 }
