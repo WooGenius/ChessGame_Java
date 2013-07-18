@@ -12,6 +12,7 @@ public class BoardTest extends TestCase {
 		board.initialize();
 		assertEquals("pppppppp", board.getArray(1));
 		assertEquals("PPPPPPPP", board.getArray(6));
-		board.printBoard();
+		String result = board.printBoard();
+		System.out.println(result);
 	}
 }

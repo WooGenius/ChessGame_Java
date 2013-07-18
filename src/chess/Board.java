@@ -6,18 +6,19 @@ import pieces.Pawn;
 public class Board {
 	static final String NEWLINE = System.getProperty("line.separator");
 	private ArrayList<ArrayList<Pawn>> piecesList = new ArrayList<ArrayList<Pawn>>();
+	int rowNum = 8;
+	int colNum = 8;
 		
 	void initialize() {
-		int i, j;		
-		for(i=0 ; i<8 ; i++) {
+		for(int i=0 ; i<rowNum ; i++) {
 			piecesList.add(new ArrayList<Pawn>());
-			for(j=0 ; j<8 ; j++)
+			for(int j=0 ; j<colNum ; j++)
 				piecesList.get(i).add(new Pawn());
 		}
 		
-		for(i=0 ; i<8 ; i++) {
-			piecesList.get(1).set(i, new Pawn(Pawn.WHITE, Pawn.WHITE_PAWN_EXP));
-			piecesList.get(6).set(i, new Pawn(Pawn.BLACK, Pawn.BLACK_PAWN_EXP));
+		for(int i=0 ; i<colNum ; i++) {
+			piecesList.get(1).set(i, new Pawn(Pawn.WHITE, Pawn.PAWN_EXP));
+			piecesList.get(6).set(i, new Pawn(Pawn.BLACK, Pawn.PAWN_EXP));
 		}
 	}
 	
@@ -44,17 +45,15 @@ public class Board {
 	String getArray(int index) {
 		StringBuilder printLine = new StringBuilder();
 		for (Pawn pawn : piecesList.get(index)) 
-			printLine.append(pawn.myExp);
+			printLine.append(pawn.getExp());
 			return printLine.toString();
 	}
 
-	void printBoard() {
+	String printBoard() {
 		StringBuilder printBoard = new StringBuilder();
-		for (ArrayList<Pawn> pawnList : piecesList) {
-			for (Pawn pawn : pawnList) 
-				printBoard.insert(0, pawn.myExp);			
-			printBoard.insert(0, NEWLINE);			
+		for (int i = rowNum; i > 0; i--) {
+			printBoard.append(this.getArray(i-1) + NEWLINE);
 		}
-		System.out.println(printBoard.toString());
+		return printBoard.toString();
 	}
 }
