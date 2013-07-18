@@ -9,7 +9,6 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testCreate() throws Exception {	
-		board.initialize();
 		assertEquals("pppppppp", board.getArray(1));
 		assertEquals("PPPPPPPP", board.getArray(6));
 		String result = board.printBoard();

@@ -19,7 +19,7 @@ public class Pawn {
 		if (color == WHITE) {
 			this.myExp = myExp;
 		} else {
-			this.myExp = Character.toUpperCase(myExp);
+			this.myExp = Character.toUpperCase(myExp);	// 컬러가 블랙인 경우 대문자 할당
 		}
 	}
 
