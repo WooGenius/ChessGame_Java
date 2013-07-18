@@ -14,6 +14,5 @@ public class ChatacterTest extends TestCase {
 		assertFalse(Character.isJavaIdentifierPart('*'));
 		assertTrue(Character.isJavaIdentifierPart('$'));
 		assertTrue(Character.isJavaIdentifierPart('_'));
-		
 	}
 }
