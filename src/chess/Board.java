@@ -18,11 +18,9 @@ public class Board {
 	
 	void initialize() {
 		int i;
-		piecesList.get(1).clear();
-		piecesList.get(6).clear();
 		for(i=0 ; i<8 ; i++) {
-			piecesList.get(1).add(i, new Pawn(Pawn.WHITE, Pawn.WHITE_PAWN_EXP));
-			piecesList.get(6).add(i, new Pawn(Pawn.BLACK, Pawn.BLACK_PAWN_EXP));
+			piecesList.get(1).set(i, new Pawn(Pawn.WHITE, Pawn.WHITE_PAWN_EXP));
+			piecesList.get(6).set(i, new Pawn(Pawn.BLACK, Pawn.BLACK_PAWN_EXP));
 		}
 	}
 	
