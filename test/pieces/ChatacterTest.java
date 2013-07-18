@@ -9,7 +9,7 @@ public class ChatacterTest extends TestCase {
 		assertEquals(true, Character.isWhitespace(' '));
 	}
 	public void testJavaIdentifier() throws Exception {
-		assertFalse(Character.isJavaIdentifierPart('^'));
+		assertFalse(Character.isJavaIdentifierPart('^')); 
 		assertFalse(Character.isJavaIdentifierPart('%'));
 		assertFalse(Character.isJavaIdentifierPart('*'));
 		assertTrue(Character.isJavaIdentifierPart('$'));
