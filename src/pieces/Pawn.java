@@ -1,12 +1,13 @@
 package pieces;
 public class Pawn {
+	public static final String WHITE = "white";
+	public static final String BLACK = "black";
+	public static final char PAWN_EXP = 'p';
+	public static final String COLOR_EMPTY = " ";
+	public static final char EXP_EMPTY = '*';
+	
 	private String color;
 	private char myExp;
-	final public static String WHITE = "white";
-	final public static String BLACK = "black";
-	public static final char PAWN_EXP = 'p';
-	final public static String COLOR_EMPTY = " ";
-	final public static char EXP_EMPTY = '*';
 	
 	
 	public Pawn(){

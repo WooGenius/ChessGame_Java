@@ -3,6 +3,9 @@ package chess;
 import junit.framework.TestCase;
 
 public class RowsTest extends TestCase {
+	public static final String EMPTY_STRING = "********";
+	public static final String WHITE_PAWN_STRING = "pppppppp";
+	public static final String BLACK_PAWN_STRING = "PPPPPPPP";
 	private Rows row;
 	
 	protected void setUp() throws Exception {
@@ -11,16 +14,16 @@ public class RowsTest extends TestCase {
 	}
 	
 	public void testInitEmpty() throws Exception {
-		assertEquals("********", row.getString());
+		assertEquals(EMPTY_STRING, row.getString());
 	}
 	
 	public void testInitWhite() throws Exception {
-		row.setWhite();
-		assertEquals("pppppppp", row.getString());
+		row.setWhitePawn();
+		assertEquals(WHITE_PAWN_STRING, row.getString());
 	}
 	
 	public void testInitBlack() throws Exception {
-		row.setBlack();
-		assertEquals("PPPPPPPP", row.getString());
+		row.setBlackPawn();
+		assertEquals(BLACK_PAWN_STRING, row.getString());
 	}
 }

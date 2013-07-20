@@ -5,30 +5,30 @@ import java.util.*;
 import pieces.Pawn;
 
 public class Rows {
+	public static final int COL_NUM = 8;
 	private ArrayList<Pawn> row = new ArrayList<Pawn>();
-	int colNum = 8;
 	
 	void initEmpty() {
-		for (int i = 0; i < colNum; i++) {
+		for (int i = 0; i < COL_NUM; i++) {
 			row.add(new Pawn());
 		}
 	}
 
-	void setWhite() {
-		for (int i = 0; i < colNum; i++) {
+	void setWhitePawn() {	// 한줄을 흰색 폰으로 바꾸는 메서드
+		for (int i = 0; i < COL_NUM; i++) {
 			row.set(i, new Pawn(Pawn.WHITE, Pawn.PAWN_EXP));
 		}
 	}
 	
-	void setBlack() {
-		for (int i = 0; i < colNum; i++) {
+	void setBlackPawn() {	// 한줄을 검정색 폰으로 바꾸는 메서드
+		for (int i = 0; i < COL_NUM; i++) {
 			row.set(i, new Pawn(Pawn.BLACK, Pawn.PAWN_EXP));
 		}
 	}
 	
 	String getString() {
 		StringBuilder rowString = new StringBuilder();
-		for (int i = 0; i < colNum; i++) {
+		for (int i = 0; i < COL_NUM; i++) {
 			rowString.append(row.get(i).getExp());
 		}
 		return rowString.toString();
