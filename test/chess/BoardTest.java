@@ -1,9 +1,9 @@
 package chess;
 
 import junit.framework.TestCase;
+import static util.StringUtil.NEWLINE;
 
 public class BoardTest extends TestCase {
-	static final String NEWLINE = System.getProperty("line.separator");
 	private Board board;
 	
 	protected void setUp() throws Exception {

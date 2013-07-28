@@ -1,5 +1,4 @@
-package pieces;
-
+package util;
 import junit.framework.TestCase;
 
 public class ChatacterTest extends TestCase {

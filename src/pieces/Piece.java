@@ -1,5 +1,5 @@
 package pieces;
-public class Pawn {
+public class Piece {
 	public static final String WHITE = "white";
 	public static final String BLACK = "black";
 	public static final char PAWN_EXP = 'p';
@@ -10,12 +10,12 @@ public class Pawn {
 	private char myExp;
 	
 	
-	public Pawn(){
+	public Piece(){
 		color = COLOR_EMPTY;
 		myExp = EXP_EMPTY;
 	}
 	
-	public Pawn(String color, char myExp) {
+	private Piece(String color, char myExp) {
 		this.color = color;
 		if (color == WHITE) {
 			this.myExp = myExp;
@@ -30,5 +30,9 @@ public class Pawn {
 	
 	public char getExp() {
 		return myExp;
+	}
+
+	public static Piece create(String color, char exp) {
+		return new Piece(color, exp);
 	}
 }

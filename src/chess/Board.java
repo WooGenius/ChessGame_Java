@@ -1,10 +1,10 @@
 package chess;
 
 import java.util.*;
+import static util.StringUtil.NEWLINE;
 
 public class Board {
 	public static final int ROW_NUM = 8;
-	static final String NEWLINE = System.getProperty("line.separator");
 	private ArrayList<Rows> piecesList = new ArrayList<Rows>();
 		
 	Board() {
