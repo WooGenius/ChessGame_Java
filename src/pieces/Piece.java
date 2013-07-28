@@ -2,8 +2,14 @@ package pieces;
 public class Piece {
 	public static final String COLOR_WHITE = "white";
 	public static final String COLOR_BLACK = "black";
-	public static final char PAWN_EXP = 'p';
 	public static final String COLOR_EMPTY = " ";
+	
+	public static final char EXP_KING = 'k';
+	public static final char EXP_QUEEN = 'q';
+	public static final char EXP_ROOK = 'r';
+	public static final char EXP_BISHOP = 'b';
+	public static final char EXP_KNIGHT = 'n';
+	public static final char EXP_PAWN = 'p';
 	public static final char EXP_EMPTY = '*';
 	
 	private String color;

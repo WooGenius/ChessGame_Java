@@ -1,7 +1,7 @@
 package chess;
 
 import java.util.*;
-import static util.StringUtil.NEWLINE;
+import static util.StringUtil.appendNewLine;
 
 public class Board {
 	public static final int ROW_NUM = 8;
@@ -16,8 +16,10 @@ public class Board {
 			piecesList.add(new Rows());
 			piecesList.get(i).initEmpty();
 		}
+		piecesList.get(0).setWhiteKQRBN();  // 1번째 줄을 흰색 킹퀸룩비숍나이트로 바꿔
 		piecesList.get(1).setWhitePawn();	// 2번째 줄을 흰색 폰으로 바꿔줌
 		piecesList.get(6).setBlackPawn();	// 7번째 줄을 검정색 폰으로 바꿔줌	
+		piecesList.get(7).setBlackKQRBN();  // 8번째 줄을 검정색 킹퀸룩비숍나이트로 바꿔
 	}
 
 	String getArray(int index) {
@@ -27,7 +29,7 @@ public class Board {
 	String printBoard() {
 		StringBuilder printBoard = new StringBuilder();
 		for (int i = ROW_NUM; i > 0; i--) {
-			printBoard.append(this.getArray(i-1) + NEWLINE);
+			printBoard.append(appendNewLine(this.getArray(i-1)));
 		}
 		return printBoard.toString();
 	}

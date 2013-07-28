@@ -1,7 +1,7 @@
 package chess;
 
 import junit.framework.TestCase;
-import static util.StringUtil.NEWLINE;
+import static util.StringUtil.appendNewLine;
 
 public class BoardTest extends TestCase {
 	private Board board;
@@ -13,12 +13,14 @@ public class BoardTest extends TestCase {
 	public void testCreate() throws Exception {	
 		assertEquals(RowsTest.WHITE_PAWN_STRING, board.getArray(1));
 		assertEquals(RowsTest.BLACK_PAWN_STRING, board.getArray(6));
+		String emptyString = appendNewLine(RowsTest.EMPTY_STRING);
 		String result = board.printBoard();
 		System.out.println(result);
-		String expectedString = RowsTest.EMPTY_STRING + NEWLINE + RowsTest.BLACK_PAWN_STRING + NEWLINE
-								+ RowsTest.EMPTY_STRING + NEWLINE + RowsTest.EMPTY_STRING + NEWLINE
-								+ RowsTest.EMPTY_STRING + NEWLINE + RowsTest.EMPTY_STRING + NEWLINE
-								+ RowsTest.WHITE_PAWN_STRING + NEWLINE + RowsTest.EMPTY_STRING + NEWLINE;
-		assertEquals(expectedString, result);
+		assertEquals(
+				appendNewLine(RowsTest.BLACK_KQRBN_STRING) +
+				appendNewLine(RowsTest.BLACK_PAWN_STRING) +
+				emptyString + emptyString + emptyString + emptyString +
+				appendNewLine(RowsTest.WHITE_PAWN_STRING) +
+				appendNewLine(RowsTest.WHITE_KQRBN_STRING), result);
 	}
 }
