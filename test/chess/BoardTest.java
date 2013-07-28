@@ -1,5 +1,6 @@
 package chess;
 
+import pieces.Piece;
 import junit.framework.TestCase;
 import static util.StringUtil.appendNewLine;
 
@@ -7,6 +8,7 @@ public class BoardTest extends TestCase {
 	private Board board;
 	
 	protected void setUp() throws Exception {
+		Piece.resetCount();
 		board = new Board();
 	}
 	
@@ -22,5 +24,10 @@ public class BoardTest extends TestCase {
 				emptyString + emptyString + emptyString + emptyString +
 				appendNewLine(RowsTest.WHITE_PAWN_STRING) +
 				appendNewLine(RowsTest.WHITE_KQRBN_STRING), result);
+	}
+	
+	public void testCount() throws Exception {
+		assertEquals(16, Piece.getWhiteCount());
+		assertEquals(16, Piece.getBlackCount());
 	}
 }

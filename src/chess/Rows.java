@@ -26,7 +26,7 @@ public class Rows {
 		}
 	}
 	
-	void setWhiteKQRBN() {
+	void setWhiteKQRBN() {	// 한줄을 흰색 킹퀸룩비숍나이트로 바꾸는 메서드
 		row.set(0, Piece.create(Piece.COLOR_WHITE, Piece.EXP_ROOK));
 		row.set(1, Piece.create(Piece.COLOR_WHITE, Piece.EXP_KNIGHT));
 		row.set(2, Piece.create(Piece.COLOR_WHITE, Piece.EXP_BISHOP));
@@ -37,7 +37,7 @@ public class Rows {
 		row.set(7, Piece.create(Piece.COLOR_WHITE, Piece.EXP_ROOK));
 	}
 	
-	void setBlackKQRBN() {
+	void setBlackKQRBN() {	// 한줄을 검정색 킹퀸룩비숍나이트로 바꾸는 메서드
 		row.set(0, Piece.create(Piece.COLOR_BLACK, Piece.EXP_ROOK));
 		row.set(1, Piece.create(Piece.COLOR_BLACK, Piece.EXP_KNIGHT));
 		row.set(2, Piece.create(Piece.COLOR_BLACK, Piece.EXP_BISHOP));
