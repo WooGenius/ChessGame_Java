@@ -43,4 +43,29 @@ public class Board {
 		}
 		return count;
 	}
+
+	public Piece getPiece(String position) {
+		int posX = getPosX(position);
+		int posY = getPosY(position);
+		return piecesList.get(posY).get(posX);
+	}
+
+	public int getPosX(String position) {
+		int posX = getIntPos(position.charAt(0));
+		return posX;
+	}
+	
+	public int getPosY(String position) {
+		int posY = getIntPos(position.charAt(1));
+		return posY;
+	}
+	
+	private int getIntPos(char pos) {	// char를 int로 바꾸는 메소드
+		final int CONSTANT_X = 10;	// getNumericValue와 체스판 포지션의 차이를 보정해주는 상수
+		final int CONSTANT_Y = 1;
+		if (Character.isDigit(pos)) {
+			return Character.getNumericValue(pos) - CONSTANT_Y;
+		}
+		return Character.getNumericValue(pos) - CONSTANT_X;
+	}
 }

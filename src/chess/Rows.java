@@ -66,4 +66,8 @@ public class Rows {
 		return count;
 	}
 
+	public Piece get(int pos) {
+		return row.get(pos);
+	}
+
 }

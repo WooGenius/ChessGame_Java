@@ -37,4 +37,15 @@ public class BoardTest extends TestCase {
 		Piece whiteKing = Piece.createWhiteKing();
 		assertEquals(1, board.getNumberOfPieces(whiteKing));
 	}
+	
+	public void testGetPiece() throws Exception {
+		String position = "a8";
+		assertEquals(0, board.getPosX(position));
+		assertEquals(7, board.getPosY(position));
+		
+		Piece blackRook = Piece.createBlackRook();
+		assertEquals(blackRook, board.getPiece("a8"));
+		Piece whiteKing = Piece.createWhiteKing();
+		assertEquals(whiteKing, board.getPiece("e1"));
+	}
 }
