@@ -1,15 +1,15 @@
 package pieces;
 public class Piece {
-	public enum Color {WHITE, BLACK, EMPTY};
+	public static enum Color {WHITE, BLACK, COLOR_EMPTY};
 	
-	public enum Exp {
+	public static enum Exp {
 		KING('k'),
 		QUEEN('q'),
 		ROOK('r'),
 		BISHOP('b'),
 		KNIGHT('n'),
 		PAWN('p'),
-		EMPTY('*');
+		EXP_EMPTY('*');
 		
 		private char exp;
 		

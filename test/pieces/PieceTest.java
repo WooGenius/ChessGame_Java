@@ -1,33 +1,35 @@
 package pieces;
 
 import junit.framework.TestCase;
+import static pieces.Piece.Color.*;
+import static pieces.Piece.Exp.*;
 
 public class PieceTest extends TestCase {
 	public void testCreate() throws Exception {
-		Piece whitePawn = Piece.create(Piece.Color.WHITE, Piece.Exp.PAWN);
-		assertEquals(Piece.Color.WHITE, whitePawn.getColor());
-		Piece blackPawn = Piece.create(Piece.Color.BLACK, Piece.Exp.PAWN);
-		assertEquals(Piece.Color.BLACK, blackPawn.getColor());
+		Piece whitePawn = Piece.create(WHITE, PAWN);
+		assertEquals(WHITE, whitePawn.getColor());
+		Piece blackPawn = Piece.create(BLACK, PAWN);
+		assertEquals(BLACK, blackPawn.getColor());
 		
-		assertEquals(Piece.Exp.PAWN.getExpFromEnum(), whitePawn.getExp());
-		assertEquals(Character.toUpperCase(Piece.Exp.PAWN.getExpFromEnum()), blackPawn.getExp());
+		assertEquals(PAWN.getExpFromEnum(), whitePawn.getExp());
+		assertEquals(Character.toUpperCase(PAWN.getExpFromEnum()), blackPawn.getExp());
 	}
 	
 	public void testCount() throws Exception {
 		Piece.resetCount();
-		Piece.create(Piece.Color.BLACK, Piece.Exp.PAWN);
+		Piece.create(BLACK, PAWN);
 		assertEquals(1, Piece.getBlackCount());
-		Piece.create(Piece.Color.WHITE, Piece.Exp.PAWN);
+		Piece.create(WHITE, PAWN);
 		assertEquals(1, Piece.getWhiteCount());
-		Piece.create(Piece.Color.EMPTY, Piece.Exp.PAWN);
+		Piece.create(COLOR_EMPTY, PAWN);
 		assertEquals(1, Piece.getWhiteCount());
 		assertEquals(1, Piece.getBlackCount());
 	}
 	
 	public void testColor() throws Exception {
-		Piece whitePiece = Piece.create(Piece.Color.WHITE, Piece.Exp.PAWN);
+		Piece whitePiece = Piece.create(WHITE, PAWN);
 		assertTrue(whitePiece.isWhite());
-		Piece blackPiece = Piece.create(Piece.Color.BLACK, Piece.Exp.PAWN);
+		Piece blackPiece = Piece.create(BLACK, PAWN);
 		assertTrue(blackPiece.isBlack());
 	}
 }
