@@ -1,6 +1,8 @@
 package chess;
 
 import java.util.*;
+
+import pieces.Piece;
 import static util.StringUtil.appendNewLine;
 
 public class Board {
@@ -32,5 +34,13 @@ public class Board {
 			printBoard.append(appendNewLine(this.getArray(i-1)));
 		}
 		return printBoard.toString();
+	}
+
+	public int getNumberOfPieces(Piece piece) {
+		int count = 0;
+		for (Rows row : piecesList) {
+			count += row.getNumberOfPiecesFromRow(piece);
+		}
+		return count;
 	}
 }

@@ -133,4 +133,29 @@ public class Piece {
 	private static Piece createBlack(Type type) {
 		return new Piece(Color.BLACK, type);
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((myColor == null) ? 0 : myColor.hashCode());
+		result = prime * result + ((myType == null) ? 0 : myType.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Piece other = (Piece) obj;
+		if (myColor != other.myColor)
+			return false;
+		if (myType != other.myType)
+			return false;
+		return true;
+	}
 }

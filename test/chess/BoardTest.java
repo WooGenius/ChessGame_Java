@@ -29,5 +29,12 @@ public class BoardTest extends TestCase {
 	public void testCount() throws Exception {
 		assertEquals(16, Piece.getWhiteCount());
 		assertEquals(16, Piece.getBlackCount());
+		
+		Piece whitePawn = Piece.createWhtiePawn();
+		assertEquals(8, board.getNumberOfPieces(whitePawn));
+		Piece blackRook = Piece.createBlackRook();
+		assertEquals(2, board.getNumberOfPieces(blackRook));
+		Piece whiteKing = Piece.createWhiteKing();
+		assertEquals(1, board.getNumberOfPieces(whiteKing));
 	}
 }

@@ -57,4 +57,13 @@ public class Rows {
 		return rowString.toString();
 	}
 
+	public int getNumberOfPiecesFromRow(Piece pieceToFind) {
+		int count = 0;
+		for (Piece piece : row) {
+			if (piece.equals(pieceToFind))
+				++count;
+		}
+		return count;
+	}
+
 }
