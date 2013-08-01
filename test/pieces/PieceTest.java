@@ -2,17 +2,23 @@ package pieces;
 
 import junit.framework.TestCase;
 import static pieces.Piece.Color.*;
-import static pieces.Piece.Exp.*;
+import static pieces.Piece.Type.*;
 
 public class PieceTest extends TestCase {
 	public void testCreate() throws Exception {
-		Piece whitePawn = Piece.create(WHITE, PAWN);
-		assertEquals(WHITE, whitePawn.getColor());
-		Piece blackPawn = Piece.create(BLACK, PAWN);
-		assertEquals(BLACK, blackPawn.getColor());
-		
-		assertEquals(PAWN.getExpFromEnum(), whitePawn.getExp());
-		assertEquals(Character.toUpperCase(PAWN.getExpFromEnum()), blackPawn.getExp());
+		verifyCreation(Piece.createWhtiePawn(), Piece.createBlackPawn(), PAWN);
+		verifyCreation(Piece.createWhiteKing(), Piece.createBlackKing(), KING);
+		verifyCreation(Piece.createWhtieQueen(), Piece.createBlackQueen(), QUEEN);
+		verifyCreation(Piece.createWhtieRook(), Piece.createBlackRook(), ROOK);
+		verifyCreation(Piece.createWhtieBishop(), Piece.createBlackBishop(), BISHOP);
+		verifyCreation(Piece.createWhtieKnight(), Piece.createBlackKnight(), KNIGHT);
+	}
+	
+	private void verifyCreation(Piece whitePiece, Piece blackPiece, Piece.Type type) {
+		assertTrue(whitePiece.isWhite());
+		assertEquals(type.getExpFromEnum(), whitePiece.getExp());
+		assertTrue(blackPiece.isBlack());
+		assertEquals(Character.toUpperCase(type.getExpFromEnum()), blackPiece.getExp());
 	}
 	
 	public void testCount() throws Exception {

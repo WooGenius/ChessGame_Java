@@ -3,7 +3,7 @@ package chess;
 import java.util.*;
 import pieces.Piece;
 import static pieces.Piece.Color.*;
-import static pieces.Piece.Exp.*;
+import static pieces.Piece.Type.*;
 
 public class Rows {
 	public static final int COL_NUM = 8;
@@ -11,7 +11,7 @@ public class Rows {
 	
 	void initEmpty() {
 		for (int i = 0; i < COL_NUM; i++) {
-			row.add(Piece.create(COLOR_EMPTY, EXP_EMPTY));
+			row.add(Piece.create(COLOR_EMPTY, TYPE_EMPTY));
 		}
 	}
 
