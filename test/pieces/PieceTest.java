@@ -29,6 +29,5 @@ public class PieceTest extends TestCase {
 		assertTrue(whitePiece.isWhite());
 		Piece blackPiece = Piece.create(Piece.COLOR_BLACK, Piece.EXP_PAWN);
 		assertTrue(blackPiece.isBlack());
-		
 	}
 }
