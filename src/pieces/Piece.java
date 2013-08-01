@@ -1,50 +1,58 @@
 package pieces;
 public class Piece {
-	public static final String COLOR_WHITE = "white";
-	public static final String COLOR_BLACK = "black";
-	public static final String COLOR_EMPTY = " ";
+	public enum Color {WHITE, BLACK, EMPTY};
 	
-	public static final char EXP_KING = 'k';
-	public static final char EXP_QUEEN = 'q';
-	public static final char EXP_ROOK = 'r';
-	public static final char EXP_BISHOP = 'b';
-	public static final char EXP_KNIGHT = 'n';
-	public static final char EXP_PAWN = 'p';
-	public static final char EXP_EMPTY = '*';
+	public enum Exp {
+		KING('k'),
+		QUEEN('q'),
+		ROOK('r'),
+		BISHOP('b'),
+		KNIGHT('n'),
+		PAWN('p'),
+		EMPTY('*');
+		
+		private char exp;
+		
+		private Exp(char exp) {
+			this.exp = exp;
+		}
+		
+		public char getExpFromEnum() {
+			return exp;
+		}
+	}
 	
 	private static int blackCount;
 	private static int whiteCount;
 	
+	private Color myColor;
+	private Exp myExp;
 	
-	private String color;
-	private char myExp;
-	
-	private Piece(String color, char myExp) {
-		this.color = color;
-		if (color == COLOR_WHITE || color == COLOR_EMPTY) {
-			this.myExp = myExp;
-		} else {
-			this.myExp = Character.toUpperCase(myExp);	// 컬러가 블랙인 경우 대문자 할당
-		}
+	private Piece(Color color, Exp exp) {
+		this.myColor = color;
+		this.myExp = exp;
 	}
 
-	String getColor() {
-		return color;
+	Color getColor() {
+		return myColor;
 	}
 	
 	public char getExp() {
-		return myExp;
+		if (isBlack()) {
+			return Character.toUpperCase(myExp.getExpFromEnum());
+		}
+		return myExp.getExpFromEnum();
 	}
 
-	public static Piece create(String color, char exp) {
+	public static Piece create(Color color, Exp exp) {
 			Piece.IncrementCount(color);
 		return new Piece(color, exp);
 	}
 
-	private static void IncrementCount(String color) {
-		if (color == COLOR_WHITE) {
+	private static void IncrementCount(Color color) {
+		if (color == Color.WHITE) {
 			++ whiteCount;
-		} else if (color == COLOR_BLACK) {
+		} else if (color == Color.BLACK) {
 			++ blackCount;
 		}
 	}
@@ -63,10 +71,10 @@ public class Piece {
 	}
 
 	public boolean isWhite() {
-		return color == COLOR_WHITE;
+		return myColor == Color.WHITE;
 	}
 
 	public boolean isBlack() {
-		return color == COLOR_BLACK;
+		return myColor == Color.BLACK;
 	}
 }
