@@ -13,20 +13,26 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testCreate() throws Exception {	
-		assertEquals(RowsTest.WHITE_PAWN_STRING, board.getArray(1));
-		assertEquals(RowsTest.BLACK_PAWN_STRING, board.getArray(6));
 		String emptyString = appendNewLine(RowsTest.EMPTY_STRING);
-		String result = board.printBoard();
-		System.out.println(result);
+		String emptyBoard = board.printBoard();
+		System.out.println(emptyBoard);
+		assertEquals(
+				emptyString + emptyString + emptyString + emptyString +
+				emptyString + emptyString + emptyString + emptyString, emptyBoard);
+		
+		board.setPieces();
+		String boardWithPieces = board.printBoard();
+		System.out.println(boardWithPieces);
 		assertEquals(
 				appendNewLine(RowsTest.BLACK_KQRBN_STRING) +
 				appendNewLine(RowsTest.BLACK_PAWN_STRING) +
 				emptyString + emptyString + emptyString + emptyString +
 				appendNewLine(RowsTest.WHITE_PAWN_STRING) +
-				appendNewLine(RowsTest.WHITE_KQRBN_STRING), result);
+				appendNewLine(RowsTest.WHITE_KQRBN_STRING), boardWithPieces);
 	}
 	
 	public void testCount() throws Exception {
+		board.setPieces();
 		assertEquals(16, Piece.getWhiteCount());
 		assertEquals(16, Piece.getBlackCount());
 		
@@ -39,6 +45,7 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testGetPiece() throws Exception {
+		board.setPieces();
 		String position = "a8";
 		assertEquals(0, board.getPosX(position));
 		assertEquals(7, board.getPosY(position));
@@ -48,4 +55,5 @@ public class BoardTest extends TestCase {
 		Piece whiteKing = Piece.createWhiteKing();
 		assertEquals(whiteKing, board.getPiece("e1"));
 	}
+
 }

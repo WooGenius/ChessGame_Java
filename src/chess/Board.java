@@ -18,6 +18,9 @@ public class Board {
 			piecesList.add(new Rows());
 			piecesList.get(i).initEmpty();
 		}
+	}
+	
+	public void setPieces() {
 		piecesList.get(0).setWhiteKQRBN();  // 1번째 줄을 흰색 킹퀸룩비숍나이트로 바꿔줌
 		piecesList.get(1).setWhitePawn();	// 2번째 줄을 흰색 폰으로 바꿔줌
 		piecesList.get(6).setBlackPawn();	// 7번째 줄을 검정색 폰으로 바꿔줌	
