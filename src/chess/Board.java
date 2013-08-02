@@ -48,13 +48,13 @@ public class Board {
 		return count;
 	}
 
-	public Piece getPiece(String position) {
-		Position pos = new Position(position);
-		return piecesList.get(pos.getY()).getPieceFromRow(pos.getY());
+	public Piece getPiece(String pos) {
+		Rows targetRow = piecesList.get(Position.getY(pos)); 
+		return targetRow.getPieceFromRow(Position.getY(pos));
 	}
 
-	public void addPiece(String position, Piece piece) {
-		Position pos = new Position(position);
-		piecesList.get(pos.getY()).setPieceFromRow(pos.getX(), piece);
+	public void addPiece(String pos, Piece piece) {
+		Rows targetRow = piecesList.get(Position.getY(pos));
+		targetRow.setPieceFromRow(Position.getX(pos), piece);
 	}
 }
