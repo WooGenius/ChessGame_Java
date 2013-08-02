@@ -3,6 +3,7 @@ package chess;
 import java.util.*;
 
 import pieces.Piece;
+import util.Position;
 import static util.StringUtil.appendNewLine;
 
 public class Board {
@@ -48,33 +49,12 @@ public class Board {
 	}
 
 	public Piece getPiece(String position) {
-		int posX = getPosX(position);
-		int posY = getPosY(position);
-		return piecesList.get(posY).get(posX);
+		Position pos = new Position(position);
+		return piecesList.get(pos.getY()).get(pos.getY());
 	}
 
-	public int getPosX(String position) {
-		int posX = getIntPos(position.charAt(0));
-		return posX;
-	}
-	
-	public int getPosY(String position) {
-		int posY = getIntPos(position.charAt(1));
-		return posY;
-	}
-	
-	private int getIntPos(char pos) {	// char를 int로 바꾸는 메소드
-		final int CONSTANT_X = 10;	// getNumericValue와 체스판 포지션의 차이를 보정해주는 상수
-		final int CONSTANT_Y = 1;
-		if (Character.isDigit(pos)) {
-			return Character.getNumericValue(pos) - CONSTANT_Y;
-		}
-		return Character.getNumericValue(pos) - CONSTANT_X;
-	}
-
-	public void add(String position, Piece piece) {
-		int posX = getPosX(position);
-		int posY = getPosY(position);
-		piecesList.get(posY).set(posX, piece);
+	public void addPiece(String position, Piece piece) {
+		Position pos = new Position(position);
+		piecesList.get(pos.getY()).set(pos.getX(), piece);
 	}
 }

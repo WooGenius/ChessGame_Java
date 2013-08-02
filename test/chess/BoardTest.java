@@ -46,10 +46,6 @@ public class BoardTest extends TestCase {
 	
 	public void testGetPiece() throws Exception {
 		board.setPieces();	// 원래말을 배치
-		String position = "a8";
-		assertEquals(0, board.getPosX(position));
-		assertEquals(7, board.getPosY(position));
-		
 		Piece blackRook = Piece.createBlackRook();
 		assertEquals(blackRook, board.getPiece("a8"));
 		Piece whiteKing = Piece.createWhiteKing();
@@ -58,10 +54,10 @@ public class BoardTest extends TestCase {
 	
 	public void testAddPiece() throws Exception {
 		Piece blackBishop = Piece.createBlackBishop();
-		board.add("a8", Piece.createBlackBishop());
+		board.addPiece("a8", Piece.createBlackBishop());
 		assertEquals(blackBishop, board.getPiece("a8"));
 		Piece whiteRook = Piece.createBlackBishop();
-		board.add("b6", Piece.createBlackBishop());
+		board.addPiece("b6", Piece.createBlackBishop());
 		assertEquals(whiteRook, board.getPiece("b6"));
 	}
 
