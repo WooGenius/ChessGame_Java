@@ -66,11 +66,11 @@ public class Rows {
 		return count;
 	}
 
-	public Piece get(int pos) {
+	public Piece getPieceFromRow(int pos) {
 		return row.get(pos);
 	}
 
-	public void set(int position, Piece piece) {
+	public void setPieceFromRow(int position, Piece piece) {
 		row.set(position, piece);
 	}
 

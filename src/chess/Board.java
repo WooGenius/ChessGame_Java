@@ -50,11 +50,11 @@ public class Board {
 
 	public Piece getPiece(String position) {
 		Position pos = new Position(position);
-		return piecesList.get(pos.getY()).get(pos.getY());
+		return piecesList.get(pos.getY()).getPieceFromRow(pos.getY());
 	}
 
 	public void addPiece(String position, Piece piece) {
 		Position pos = new Position(position);
-		piecesList.get(pos.getY()).set(pos.getX(), piece);
+		piecesList.get(pos.getY()).setPieceFromRow(pos.getX(), piece);
 	}
 }
