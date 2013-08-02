@@ -70,4 +70,8 @@ public class Rows {
 		return row.get(pos);
 	}
 
+	public void set(int position, Piece piece) {
+		row.set(position, piece);
+	}
+
 }

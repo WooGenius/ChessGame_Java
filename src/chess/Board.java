@@ -20,7 +20,7 @@ public class Board {
 		}
 	}
 	
-	public void setPieces() {
+	public void setPieces() {	// 말을 배치하는 메소드
 		piecesList.get(0).setWhiteKQRBN();  // 1번째 줄을 흰색 킹퀸룩비숍나이트로 바꿔줌
 		piecesList.get(1).setWhitePawn();	// 2번째 줄을 흰색 폰으로 바꿔줌
 		piecesList.get(6).setBlackPawn();	// 7번째 줄을 검정색 폰으로 바꿔줌	
@@ -70,5 +70,11 @@ public class Board {
 			return Character.getNumericValue(pos) - CONSTANT_Y;
 		}
 		return Character.getNumericValue(pos) - CONSTANT_X;
+	}
+
+	public void add(String position, Piece piece) {
+		int posX = getPosX(position);
+		int posY = getPosY(position);
+		piecesList.get(posY).set(posX, piece);
 	}
 }

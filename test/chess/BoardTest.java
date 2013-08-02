@@ -20,7 +20,7 @@ public class BoardTest extends TestCase {
 				emptyString + emptyString + emptyString + emptyString +
 				emptyString + emptyString + emptyString + emptyString, emptyBoard);
 		
-		board.setPieces();
+		board.setPieces();	// 원래말을 배치
 		String boardWithPieces = board.printBoard();
 		System.out.println(boardWithPieces);
 		assertEquals(
@@ -32,7 +32,7 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testCount() throws Exception {
-		board.setPieces();
+		board.setPieces();	// 원래말을 배치
 		assertEquals(16, Piece.getWhiteCount());
 		assertEquals(16, Piece.getBlackCount());
 		
@@ -45,7 +45,7 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testGetPiece() throws Exception {
-		board.setPieces();
+		board.setPieces();	// 원래말을 배치
 		String position = "a8";
 		assertEquals(0, board.getPosX(position));
 		assertEquals(7, board.getPosY(position));
@@ -54,6 +54,15 @@ public class BoardTest extends TestCase {
 		assertEquals(blackRook, board.getPiece("a8"));
 		Piece whiteKing = Piece.createWhiteKing();
 		assertEquals(whiteKing, board.getPiece("e1"));
+	}
+	
+	public void testAddPiece() throws Exception {
+		Piece blackBishop = Piece.createBlackBishop();
+		board.add("a8", Piece.createBlackBishop());
+		assertEquals(blackBishop, board.getPiece("a8"));
+		Piece whiteRook = Piece.createBlackBishop();
+		board.add("b6", Piece.createBlackBishop());
+		assertEquals(whiteRook, board.getPiece("b6"));
 	}
 
 }
