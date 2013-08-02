@@ -1,29 +1,36 @@
 package pieces;
+
+import pieces.Piece.Color;
+import pieces.Piece.Type;
+
 public class Piece {
 	public static enum Color {WHITE, BLACK, COLOR_EMPTY};
 	
 	public static enum Type {
-		KING('k'),
-		QUEEN('q'),
-		ROOK('r'),
-		BISHOP('b'),
-		KNIGHT('n'),
-		PAWN('p'),
-		TYPE_EMPTY('*');
+		KING('k', 0.0),
+		QUEEN('q', 9.0),
+		ROOK('r', 5.0),
+		BISHOP('b', 3.0),
+		KNIGHT('n', 2.5),
+		PAWN('p', 1.0),
+		TYPE_EMPTY('*', 0.0);
 		
 		private char exp;
+		private double score;
 		
-		private Type(char exp) {
+		private Type(char exp, double score) {
 			this.exp = exp;
+			this.score = score;
 		}
 		
 		public char getExpFromEnum() {
 			return exp;
 		}
+		
+		public double getScoreFromEnum() {
+			return score;
+		}
 	}
-	
-	private static int blackCount;
-	private static int whiteCount;
 	
 	private Color myColor;
 	private Type myType;
@@ -33,8 +40,12 @@ public class Piece {
 		this.myType = type;
 	}
 
-	Color getColor() {
+	public Color getColor() {
 		return myColor;
+	}
+	
+	public Type getType() {
+		return myType;
 	}
 	
 	public char getExp() {
@@ -44,32 +55,10 @@ public class Piece {
 		return myType.getExpFromEnum();
 	}
 
-	public static Piece create(Color color, Type exp) {
-			Piece.IncrementCount(color);
-		return new Piece(color, exp);
+	public double getScore() {
+		return myType.getScoreFromEnum();
 	}
-
-	private static void IncrementCount(Color color) {
-		if (color == Color.WHITE) {
-			++ whiteCount;
-		} else if (color == Color.BLACK) {
-			++ blackCount;
-		}
-	}
-
-	public static void resetCount() {
-		blackCount = 0;
-		whiteCount = 0;
-	}
-
-	public static int getBlackCount() {
-		return blackCount;
-	}
-
-	public static int getWhiteCount() {
-		return whiteCount;
-	}
-
+	
 	public boolean isWhite() {
 		return myColor == Color.WHITE;
 	}
@@ -78,7 +67,7 @@ public class Piece {
 		return myColor == Color.BLACK;
 	}
 
-	public static Piece createWhtiePawn() {
+	public static Piece createWhitePawn() {
 		return createWhite(Type.PAWN);
 	}
 
@@ -94,7 +83,7 @@ public class Piece {
 		return createBlack(Type.KING);
 	}
 	
-	public static Piece createWhtieQueen() {
+	public static Piece createWhiteQueen() {
 		return createWhite(Type.QUEEN);
 	}
 	
@@ -102,7 +91,7 @@ public class Piece {
 		return createBlack(Type.QUEEN);
 	}
 	
-	public static Piece createWhtieRook() {
+	public static Piece createWhiteRook() {
 		return createWhite(Type.ROOK);
 	}
 	
@@ -110,7 +99,7 @@ public class Piece {
 		return createBlack(Type.ROOK);
 	}
 	
-	public static Piece createWhtieBishop() {
+	public static Piece createWhiteBishop() {
 		return createWhite(Type.BISHOP);
 	}
 	
@@ -118,12 +107,16 @@ public class Piece {
 		return createBlack(Type.BISHOP);
 	}
 	
-	public static Piece createWhtieKnight() {
+	public static Piece createWhiteKnight() {
 		return createWhite(Type.KNIGHT);
 	}
 	
 	public static Piece createBlackKnight() {
 		return createBlack(Type.KNIGHT);
+	}
+	
+	public static Piece createEmptyPiece() {
+		return new Piece(Color.COLOR_EMPTY, Type.TYPE_EMPTY);
 	}
 	
 	private static Piece createWhite(Type type) {
@@ -158,4 +151,7 @@ public class Piece {
 			return false;
 		return true;
 	}
+
+
+
 }

@@ -6,12 +6,12 @@ import static pieces.Piece.Type.*;
 
 public class PieceTest extends TestCase {
 	public void testCreate() throws Exception {
-		verifyCreation(Piece.createWhtiePawn(), Piece.createBlackPawn(), PAWN);
+		verifyCreation(Piece.createWhitePawn(), Piece.createBlackPawn(), PAWN);
 		verifyCreation(Piece.createWhiteKing(), Piece.createBlackKing(), KING);
-		verifyCreation(Piece.createWhtieQueen(), Piece.createBlackQueen(), QUEEN);
-		verifyCreation(Piece.createWhtieRook(), Piece.createBlackRook(), ROOK);
-		verifyCreation(Piece.createWhtieBishop(), Piece.createBlackBishop(), BISHOP);
-		verifyCreation(Piece.createWhtieKnight(), Piece.createBlackKnight(), KNIGHT);
+		verifyCreation(Piece.createWhiteQueen(), Piece.createBlackQueen(), QUEEN);
+		verifyCreation(Piece.createWhiteRook(), Piece.createBlackRook(), ROOK);
+		verifyCreation(Piece.createWhiteBishop(), Piece.createBlackBishop(), BISHOP);
+		verifyCreation(Piece.createWhiteKnight(), Piece.createBlackKnight(), KNIGHT);
 	}
 	
 	private void verifyCreation(Piece whitePiece, Piece blackPiece, Piece.Type type) {
@@ -21,21 +21,10 @@ public class PieceTest extends TestCase {
 		assertEquals(Character.toUpperCase(type.getExpFromEnum()), blackPiece.getExp());
 	}
 	
-	public void testCount() throws Exception {
-		Piece.resetCount();
-		Piece.create(BLACK, PAWN);
-		assertEquals(1, Piece.getBlackCount());
-		Piece.create(WHITE, PAWN);
-		assertEquals(1, Piece.getWhiteCount());
-		Piece.create(COLOR_EMPTY, PAWN);
-		assertEquals(1, Piece.getWhiteCount());
-		assertEquals(1, Piece.getBlackCount());
-	}
-	
 	public void testColor() throws Exception {
-		Piece whitePiece = Piece.create(WHITE, PAWN);
+		Piece whitePiece = Piece.createWhitePawn();
 		assertTrue(whitePiece.isWhite());
-		Piece blackPiece = Piece.create(BLACK, PAWN);
+		Piece blackPiece = Piece.createBlackPawn();
 		assertTrue(blackPiece.isBlack());
 	}
 }

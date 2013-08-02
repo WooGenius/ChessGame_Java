@@ -1,6 +1,7 @@
 package chess;
 
 import pieces.Piece;
+import pieces.Piece.Color;
 import junit.framework.TestCase;
 import static util.StringUtil.appendNewLine;
 
@@ -8,7 +9,6 @@ public class BoardTest extends TestCase {
 	private Board board;
 	
 	protected void setUp() throws Exception {
-		Piece.resetCount();
 		board = new Board();
 	}
 	
@@ -32,11 +32,8 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testCount() throws Exception {
-		board.setPieces();	// 원래말을 배치
-		assertEquals(16, Piece.getWhiteCount());
-		assertEquals(16, Piece.getBlackCount());
-		
-		Piece whitePawn = Piece.createWhtiePawn();
+		board.setPieces();
+		Piece whitePawn = Piece.createWhitePawn();
 		assertEquals(8, board.getNumberOfPieces(whitePawn));
 		Piece blackRook = Piece.createBlackRook();
 		assertEquals(2, board.getNumberOfPieces(blackRook));
@@ -54,11 +51,47 @@ public class BoardTest extends TestCase {
 	
 	public void testAddPiece() throws Exception {
 		Piece blackBishop = Piece.createBlackBishop();
-		board.addPiece("a8", Piece.createBlackBishop());
+		board.addPiece("a8", blackBishop);
 		assertEquals(blackBishop, board.getPiece("a8"));
-		Piece whiteRook = Piece.createBlackBishop();
-		board.addPiece("b6", Piece.createBlackBishop());
+		Piece whiteRook = Piece.createWhiteRook();
+		board.addPiece("b6", whiteRook);
 		assertEquals(whiteRook, board.getPiece("b6"));
+	}
+	
+	public void testScore() throws Exception {
+		board.addPiece("a8", Piece.createBlackRook());
+		printScore();
+		assertEquals(5.0, board.getScore(Color.BLACK));
+		assertEquals(0.0, board.getScore(Color.WHITE));
+		
+		board.addPiece("a7", Piece.createWhiteBishop());
+		printScore();
+		assertEquals(5.0, board.getScore(Color.BLACK));
+		assertEquals(3.0, board.getScore(Color.WHITE));
+		
+		board.addPiece("b6", Piece.createWhitePawn());
+		board.addPiece("b7", Piece.createBlackPawn());
+		board.addPiece("e6", Piece.createWhiteQueen());
+		board.addPiece("c8", Piece.createBlackKnight());
+		printScore();
+		assertEquals(8.5, board.getScore(Color.BLACK));
+		assertEquals(13.0, board.getScore(Color.WHITE));
+		
+		board.addPiece("b3", Piece.createBlackPawn());	// 이미 같은줄에 검정색 폰이 있는경우
+		printScore();
+		assertEquals(8.5, board.getScore(Color.BLACK));
+		assertEquals(13.0, board.getScore(Color.WHITE));
+
+		board.addPiece("b4", Piece.createBlackPawn());	// 이미 같은줄에 검정색 폰이 있는 경우
+		printScore();
+		assertEquals(9.0, board.getScore(Color.BLACK));
+		assertEquals(13.0, board.getScore(Color.WHITE));
+		
+	}
+
+	private void printScore() {
+		System.out.println(board.printBoard() + appendNewLine("Black:White = " + 
+								board.getScore(Color.BLACK) + ":" + board.getScore(Color.WHITE)));
 	}
 
 }
