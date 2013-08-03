@@ -71,13 +71,19 @@ public class Board {
  			score += row.getScoreFromRow(color);
 		}
 		
-		for (int i : pawnList) {
-			if (i>1) {
-				final double PAWN_SCORE_GAP = 0.5;
-				score -= i*PAWN_SCORE_GAP;
-			}
-		}
+		score -= addGapScore(pawnList); 
 		return score;
+	}
+
+	private double addGapScore(ArrayList<Integer> pawnList) {
+		final double GAP_SCORE = 0.5;
+		double gapScoreSum = 0;
+		
+		for (Integer numOfPawnByCol : pawnList) {
+			if (numOfPawnByCol > 1)
+				gapScoreSum += (GAP_SCORE * numOfPawnByCol);
+		}
+		return gapScoreSum;
 	}
 
 	public ArrayList<Piece> makeSortedListByColor(Color color) {
