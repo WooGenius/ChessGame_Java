@@ -1,5 +1,7 @@
 package chess;
 
+import java.util.ArrayList;
+
 import pieces.Piece;
 import pieces.Piece.Color;
 import junit.framework.TestCase;
@@ -93,5 +95,17 @@ public class BoardTest extends TestCase {
 		System.out.println(board.printBoard() + appendNewLine("Black:White = " + 
 								board.getScore(Color.BLACK) + ":" + board.getScore(Color.WHITE)));
 	}
-
+	
+	public void testMakeSortedListByColor() throws Exception {
+		board.addPiece("b6", Piece.createWhitePawn());
+		board.addPiece("b7", Piece.createBlackPawn());
+		board.addPiece("e6", Piece.createWhiteQueen());
+		board.addPiece("c8", Piece.createBlackKnight());
+		board.addPiece("c7", Piece.createBlackQueen());
+		ArrayList<Piece> sortedList = board.makeSortedListByColor(Color.BLACK);
+		assertEquals(3, sortedList.size());
+		System.out.println(sortedList);
+		assertEquals(Piece.createBlackQueen(), sortedList.get(0));
+		assertEquals(Piece.createBlackPawn(), sortedList.get(2));
+	}
 }

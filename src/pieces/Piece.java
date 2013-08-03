@@ -3,24 +3,26 @@ package pieces;
 import pieces.Piece.Color;
 import pieces.Piece.Type;
 
-public class Piece {
+public class Piece implements Comparable<Piece> {
 	public static enum Color {WHITE, BLACK, COLOR_EMPTY};
 	
 	public static enum Type {
-		KING('k', 0.0),
-		QUEEN('q', 9.0),
-		ROOK('r', 5.0),
-		BISHOP('b', 3.0),
-		KNIGHT('n', 2.5),
-		PAWN('p', 1.0),
-		TYPE_EMPTY('*', 0.0);
+		KING('k', 0.0, 1),
+		QUEEN('q', 9.0, 2),
+		ROOK('r', 5.0, 3),
+		BISHOP('b', 3.0, 4),
+		KNIGHT('n', 2.5, 5),
+		PAWN('p', 1.0, 6),
+		TYPE_EMPTY('*', 0.0, 7);
 		
 		private char exp;
 		private double score;
+		private int rank;
 		
-		private Type(char exp, double score) {
+		private Type(char exp, double score, int rank) {
 			this.exp = exp;
 			this.score = score;
+			this.rank = rank;
 		}
 		
 		public char getExpFromEnum() {
@@ -29,6 +31,10 @@ public class Piece {
 		
 		public double getScoreFromEnum() {
 			return score;
+		}
+		
+		public int getRankFromEnum() {
+			return rank;
 		}
 	}
 	
@@ -57,6 +63,10 @@ public class Piece {
 
 	public double getScore() {
 		return myType.getScoreFromEnum();
+	}
+	
+	public int getRank() {
+		return myType.getRankFromEnum();
 	}
 	
 	public boolean is(Color color, Type type) {
@@ -154,5 +164,15 @@ public class Piece {
 		if (myType != other.myType)
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Piece target) {
+		return getRank() - target.getRank();
+	}
+
+	@Override
+	public String toString() {
+		return "Piece [myColor=" + myColor + ", myType=" + myType + "]";
 	}
 }

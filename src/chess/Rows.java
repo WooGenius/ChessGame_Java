@@ -94,4 +94,13 @@ public class Rows {
 		}
 		return pawnList;
 	}
+
+	public ArrayList<Piece> getListByColor(Color color) {
+		ArrayList<Piece> piecesList = new ArrayList<Piece>();
+		for (Piece piece : row) {
+			if(piece.getColor() == color) 
+				piecesList.add(piece);
+		}
+		return piecesList;
+	}
 }
