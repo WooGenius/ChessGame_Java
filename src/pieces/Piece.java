@@ -59,6 +59,10 @@ public class Piece {
 		return myType.getScoreFromEnum();
 	}
 	
+	public boolean is(Color color, Type type) {
+		return (myColor == color && myType == type);
+	}
+	
 	public boolean isWhite() {
 		return myColor == Color.WHITE;
 	}
@@ -151,7 +155,4 @@ public class Piece {
 			return false;
 		return true;
 	}
-
-
-
 }

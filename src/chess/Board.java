@@ -63,18 +63,18 @@ public class Board {
 		ArrayList<Integer> pawnList = new ArrayList<Integer>(8);
 		double score = 0;
 		
-		for (int i = 0; i < ROW_NUM; i++)
+		for (int i = 0; i < ROW_NUM; i++)	// 폰리스트 초기화
 			pawnList.add(0);
 		
 		for (Rows row : piecesList) {
-			pawnList = row.addPawnNum(color, pawnList);
+			pawnList = row.addPawnNum(color, pawnList);	// 각각의 열에 폰있으면 숫자를 더하는 메소드
  			score += row.getScoreFromRow(color);
 		}
 		
 		for (int i : pawnList) {
 			if (i>1) {
-				double d = 0.5;
-				score -= i*d;
+				final double PAWN_SCORE_GAP = 0.5;
+				score -= i*PAWN_SCORE_GAP;
 			}
 		}
 		return score;

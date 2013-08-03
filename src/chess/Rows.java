@@ -86,9 +86,9 @@ public class Rows {
 
 	public ArrayList<Integer> addPawnNum(Color color, ArrayList<Integer> pawnList) {
 		for (int i = 0; i < COL_NUM; i++) {
-			if (color == Color.BLACK && row.get(i).equals(Piece.createBlackPawn())) {
+			if (row.get(i).is(color, Piece.Type.PAWN)) {
 				pawnList.set(i, pawnList.get(i) + 1);
-			} else if (color == Color.WHITE && row.get(i).equals(Piece.createWhitePawn())) {
+			} else if (row.get(i).is(color, Piece.Type.PAWN)) {
 				pawnList.set(i, pawnList.get(i) + 1);
 			}
 		}
